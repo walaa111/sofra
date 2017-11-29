@@ -31,8 +31,9 @@ var app = {
 	//admob.initAdmob("ca-app-pub-7251676025279948/7827344712","ca-app-pub-7251676025279948/5792208319");
 	//admob.showBanner(admob.BannerSize.BANNER, admob.Position.BOTTOM_APP);
 
-	var inAppBrowserbRef = cordova.InAppBrowser.open('https://electrostar.ovplatform.tk', '_self', 'location=no,toolbar=no');
-        inAppBrowserbRef = cordova.InAppBrowser.open('https://sofra.cbc-eg.com/', '_self', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
+	//var inAppBrowserbRef = cordova.InAppBrowser.open('https://electrostar.ovplatform.tk', '_self', 'location=no,toolbar=no');
+        //inAppBrowserbRef = cordova.InAppBrowser.open('https://sofra.cbc-eg.com/', '_self', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
+        var ref = window.open('https://sofra.cbc-eg.com/', '_blank', 'location=no&hidden=no&toolbar=no&zoom=no&clearcache=no&clearsessioncache=no');
         /*inAppBrowserbRef.addEventListener('loadstart', inAppBrowserbLoadStart);
         inAppBrowserbRef.addEventListener('loadstop', inAppBrowserbLoadStop);
         inAppBrowserbRef.addEventListener('loaderror', inAppBrowserbLoadError);
