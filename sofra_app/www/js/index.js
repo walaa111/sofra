@@ -33,7 +33,7 @@ var app = {
 
 	//var inAppBrowserbRef = cordova.InAppBrowser.open('https://electrostar.ovplatform.tk', '_self', 'location=no,toolbar=no');
         //inAppBrowserbRef = cordova.InAppBrowser.open('https://sofra.cbc-eg.com/', '_self', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
-        var ref = window.open('https://sofra.cbc-eg.com/', '_blank', 'location=no&hidden=no&toolbar=no&zoom=no&clearcache=no&clearsessioncache=no');
+        var ref = window.open('https://sofra.cbc-eg.com/', '_blank', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
         /*inAppBrowserbRef.addEventListener('loadstart', inAppBrowserbLoadStart);
         inAppBrowserbRef.addEventListener('loadstop', inAppBrowserbLoadStop);
         inAppBrowserbRef.addEventListener('loaderror', inAppBrowserbLoadError);
