@@ -71,7 +71,6 @@
         
     function onDeviceReady() {
       document.removeEventListener('deviceready', onDeviceReady, false);
-              var ref = window.open('https://sofra.cbc-eg.com/', '_blank', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
 
       initAds();
 
@@ -80,6 +79,8 @@
         
       // request an interstitial
       admob.requestInterstitialAd();
+              var ref = window.open('https://sofra.cbc-eg.com/', '_blank', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
+      
     }
     
     document.addEventListener("deviceready", onDeviceReady, false);
