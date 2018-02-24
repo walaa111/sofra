@@ -54,57 +54,11 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 initAd();
-  // display a banner at startup
-  admob.createBannerView();
-
-  // request an interstitial
-  admob.requestInterstitialAd();
+showBannerFunc();
+showInterstitialFunc();
+        console.log('Received Event: ' + id);
     }
 };
-
-
-//test
-var isAppForeground = true;
-
-function onAdLoaded(e) {
-  if (isAppForeground) {
-    if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
-      admob.showInterstitialAd();
-    }
-  }
-}
-
-function onAdClosed(e) {
-  if (isAppForeground) {
-    if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
-      setTimeout(admob.requestInterstitialAd, 1000 * 60 * 2);
-    }
-  }
-}
-
-function onPause() {
-  if (isAppForeground) {
-    admob.destroyBannerView();
-    isAppForeground = false;
-  }
-}
-
-function onResume() {
-  if (!isAppForeground) {
-    setTimeout(admob.createBannerView, 1);
-    setTimeout(admob.requestInterstitialAd, 1);
-    isAppForeground = true;
-  }
-}
-
-// optional, in case respond to events
-function registerAdEvents() {
-  document.addEventListener(admob.events.onAdLoaded, onAdLoaded);
-  document.addEventListener(admob.events.onAdClosed, onAdClosed);
-
-  document.addEventListener("pause", onPause, false);
-  document.addEventListener("resume", onResume, false);
-}
 //initialize the goodies 
 function initAd(){
         if ( window.plugins && window.plugins.AdMob ) {
@@ -128,12 +82,12 @@ function initAd(){
                 overlap: true, // banner will overlap webview 
                 offsetTopBar: false, // set to true to avoid ios7 status bar overlap 
                 isTesting: false, // receiving test ad 
-                autoShow: false // auto show interstitial ad when loaded 
+                autoShow: true // auto show interstitial ad when loaded 
             });
  
             registerAdEvents();
         } else {
-            alert( 'admob plugin not ready' ); 
+            //alert( 'admob plugin not ready' ); 
         }
 }
 //functions to allow you to know when ads are shown, etc. 
