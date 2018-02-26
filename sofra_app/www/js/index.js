@@ -54,13 +54,8 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 initAd();
-$("body").on("click",function(){
-alert("hi");
-
 showBannerFunc();
 showInterstitialFunc();
-});
-
         console.log('Received Event: ' + id);
     }
 };
