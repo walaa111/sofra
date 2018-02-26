@@ -54,7 +54,7 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 initAd();
-$(".scrollToTop").on("click",function(){
+$(".app").on("click",function(){
 alert("hi");
 
 showBannerFunc();
