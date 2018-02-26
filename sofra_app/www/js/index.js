@@ -54,7 +54,7 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 initAd();
-$(".app").on("click",function(){
+$("body").on("click",function(){
 alert("hi");
 
 showBannerFunc();
