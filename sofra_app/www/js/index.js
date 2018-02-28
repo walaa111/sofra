@@ -54,8 +54,14 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 initAd();
+
+$('body').on('click','.scrollToTop',function(){
+    alert('d');
 showBannerFunc();
 showInterstitialFunc();
+
+});
+
         console.log('Received Event: ' + id);
     }
 };
