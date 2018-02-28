@@ -36,7 +36,7 @@ var app = {
         var ref = window.open('https://sofra.cbc-eg.com/', '_blank', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
         ref.addEventListener('loadstop', function() {
   ref.executeScript({
-    code: "document.getElementsByTagName('html')[0].innerHTML"
+    code: "document.getElementsByTagName('html').innerHTML"
   }, function(html) {
     alert(html);
   });
