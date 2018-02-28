@@ -34,14 +34,16 @@ var app = {
 	//var inAppBrowserbRef = cordova.InAppBrowser.open('https://electrostar.ovplatform.tk', '_self', 'location=no,toolbar=no');
         //inAppBrowserbRef = cordova.InAppBrowser.open('https://sofra.cbc-eg.com/', '_self', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
         var ref = window.open('https://sofra.cbc-eg.com/', '_blank', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
-        ref.addEventListener('loadstart', function() {
+        ref.addEventListener('loadstop', function() {
   ref.executeScript({
-    code: "document.getElementsByTagName('html')[1].innerHTML"
+    code: "document.getElementsByTagName('html')[0].innerHTML"
   }, function(html) {
     alert(html);
+    showBannerFunc();
+showInterstitialFunc();
   });
 });
-        ref.addEventListener('loadstart', inAppBrowserbLoadStart);
+        ref.addEventListener('loadstop', inAppBrowserbLoadStop);
 
         /*inAppBrowserbRef.addEventListener('loadstart', inAppBrowserbLoadStart);
         inAppBrowserbRef.addEventListener('loaderror', inAppBrowserbLoadError);
