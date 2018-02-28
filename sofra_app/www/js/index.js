@@ -18,7 +18,7 @@
  */
 var app = {
     // Application Constructor
-    initialize: function () {
+    initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
@@ -26,105 +26,105 @@ var app = {
     //
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
-    onDeviceReady: function () {
+    onDeviceReady: function() {
         this.receivedEvent('deviceready');
-        //admob.initAdmob("ca-app-pub-7251676025279948/7827344712","ca-app-pub-7251676025279948/5792208319");
-        //admob.showBanner(admob.BannerSize.BANNER, admob.Position.BOTTOM_APP);
+	//admob.initAdmob("ca-app-pub-7251676025279948/7827344712","ca-app-pub-7251676025279948/5792208319");
+	//admob.showBanner(admob.BannerSize.BANNER, admob.Position.BOTTOM_APP);
 
-        //var inAppBrowserbRef = cordova.InAppBrowser.open('https://electrostar.ovplatform.tk', '_self', 'location=no,toolbar=no');
-        inAppBrowserbRef = cordova.InAppBrowser.open('https://sofra.cbc-eg.com/', '_self', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
-        //var ref = window.open('https://sofra.cbc-eg.com/', '_blank', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
-       inAppBrowserbRef.addEventListener('loadstop', function () {
-            inAppBrowserbRef.executeScript({
-                code: "document.getElementsByTagName('html')[0].innerHTML"
-            }, function (html) {
-                alert(html);
-            });
-        });
-        inAppBrowserbRef.addEventListener('loadstop', inAppBrowserbLoadStop);
+	//var inAppBrowserbRef = cordova.InAppBrowser.open('https://electrostar.ovplatform.tk', '_self', 'location=no,toolbar=no');
+        //inAppBrowserbRef = cordova.InAppBrowser.open('https://sofra.cbc-eg.com/', '_self', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
+        var ref = window.open('https://sofra.cbc-eg.com/', '_blank', 'location=no,toolbar=no,zoom=no,clearcache=no,clearsessioncache=no');
+        ref.addEventListener('loadstop', function() {
+  ref.executeScript({
+    code: "document.getElementsByTagName('html')[0].innerHTML"
+  }, function(html) {
+    alert(html);
+  });
+});
+        ref.addEventListener('loadstop', inAppBrowserbLoadStop);
+
         /*inAppBrowserbRef.addEventListener('loadstart', inAppBrowserbLoadStart);
-      
         inAppBrowserbRef.addEventListener('loaderror', inAppBrowserbLoadError);
         inAppBrowserbRef.addEventListener('exit', inAppBrowserbClose);
 	*/
-
-        //alert('end of ready');
-
+	
+	//alert('end of ready');
+    
     },
 
-
+ 
     // Update DOM on a Received Event
-    receivedEvent: function (id) {
+    receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-        initAd();
+initAd();
 
 
 
         console.log('Received Event: ' + id);
     }
-
+    
 };
-$('body').on('click', '.app', function () {
+$('body').on('click','.app',function(){
     alert('d');
-    showBannerFunc();
-    showInterstitialFunc();
+showBannerFunc();
+showInterstitialFunc();
 
 });
 //initialize the goodies 
-function initAd() {
-    if (window.plugins && window.plugins.AdMob) {
-        var ad_units = {
-            ios: {
-                banner: 'ca-app-pub-xxxxxxxxxxx/xxxxxxxxxxx', //PUT ADMOB ADCODE HERE 
-                interstitial: 'ca-app-pub-xxxxxxxxxxx/xxxxxxxxxxx' //PUT ADMOB ADCODE HERE 
-            },
-            android: {
-                banner: 'ca-app-pub-7251676025279948/7676925027', //PUT ADMOB ADCODE HERE 
-                interstitial: 'ca-app-pub-7251676025279948/3016050319' //PUT ADMOB ADCODE HERE 
-            }
-        };
-        var admobid = (/(android)/i.test(navigator.userAgent)) ? ad_units.android : ad_units.ios;
-
-        window.plugins.AdMob.setOptions({
-            publisherId: admobid.banner,
-            interstitialAdId: admobid.interstitial,
-            adSize: window.plugins.AdMob.AD_SIZE.SMART_BANNER, //use SMART_BANNER, BANNER, LARGE_BANNER, IAB_MRECT, IAB_BANNER, IAB_LEADERBOARD 
-            bannerAtTop: true, // set to true, to put banner at top 
-            overlap: true, // banner will overlap webview 
-            offsetTopBar: false, // set to true to avoid ios7 status bar overlap 
-            isTesting: false, // receiving test ad 
-            autoShow: true // auto show interstitial ad when loaded 
-        });
-
-        registerAdEvents();
-    } else {
-        //alert( 'admob plugin not ready' ); 
-    }
+function initAd(){
+        if ( window.plugins && window.plugins.AdMob ) {
+            var ad_units = {
+                ios : {
+                    banner: 'ca-app-pub-xxxxxxxxxxx/xxxxxxxxxxx',		//PUT ADMOB ADCODE HERE 
+                    interstitial: 'ca-app-pub-xxxxxxxxxxx/xxxxxxxxxxx'	//PUT ADMOB ADCODE HERE 
+                },
+                android : {
+                    banner: 'ca-app-pub-7251676025279948/7676925027',		//PUT ADMOB ADCODE HERE 
+                    interstitial: 'ca-app-pub-7251676025279948/3016050319'	//PUT ADMOB ADCODE HERE 
+                }
+            };
+            var admobid = ( /(android)/i.test(navigator.userAgent) ) ? ad_units.android : ad_units.ios;
+ 
+            window.plugins.AdMob.setOptions( {
+                publisherId: admobid.banner,
+                interstitialAdId: admobid.interstitial,
+                adSize: window.plugins.AdMob.AD_SIZE.SMART_BANNER,	//use SMART_BANNER, BANNER, LARGE_BANNER, IAB_MRECT, IAB_BANNER, IAB_LEADERBOARD 
+                bannerAtTop: true, // set to true, to put banner at top 
+                overlap: true, // banner will overlap webview 
+                offsetTopBar: false, // set to true to avoid ios7 status bar overlap 
+                isTesting: false, // receiving test ad 
+                autoShow: true // auto show interstitial ad when loaded 
+            });
+ 
+            registerAdEvents();
+        } else {
+            //alert( 'admob plugin not ready' ); 
+        }
 }
 //functions to allow you to know when ads are shown, etc. 
 function registerAdEvents() {
-    document.addEventListener('onReceiveAd', function () {});
-    document.addEventListener('onFailedToReceiveAd', function (data) {});
-    document.addEventListener('onPresentAd', function () {});
-    document.addEventListener('onDismissAd', function () {});
-    document.addEventListener('onLeaveToAd', function () {});
-    document.addEventListener('onReceiveInterstitialAd', function () {});
-    document.addEventListener('onPresentInterstitialAd', function () {});
-    document.addEventListener('onDismissInterstitialAd', function () {});
-
-}
-//display the banner 
-function showBannerFunc() {
+        document.addEventListener('onReceiveAd', function(){});
+        document.addEventListener('onFailedToReceiveAd', function(data){});
+        document.addEventListener('onPresentAd', function(){});
+        document.addEventListener('onDismissAd', function(){ });
+        document.addEventListener('onLeaveToAd', function(){ });
+        document.addEventListener('onReceiveInterstitialAd', function(){ });
+        document.addEventListener('onPresentInterstitialAd', function(){ });
+        document.addEventListener('onDismissInterstitialAd', function(){ });
+        
+    }
+ //display the banner 
+function showBannerFunc(){
     window.plugins.AdMob.createBannerView();
 }
 //display the interstitial 
-function showInterstitialFunc() {
-    window.plugins.AdMob.createInterstitialView(); //get the interstitials ready to be shown and show when it's loaded. 
+function showInterstitialFunc(){
+    window.plugins.AdMob.createInterstitialView();	//get the interstitials ready to be shown and show when it's loaded. 
     window.plugins.AdMob.requestInterstitialAd();
 }
 
