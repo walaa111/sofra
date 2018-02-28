@@ -41,12 +41,7 @@ var app = {
 	*/
 	
 	//alert('end of ready');
-    $('body').on('click','.scrollToTop',function(){
-    alert('d');
-showBannerFunc();
-showInterstitialFunc();
-
-});
+    
     },
 
  
@@ -66,7 +61,12 @@ initAd();
     }
     
 };
+$('body').on('click','.app',function(){
+    alert('d');
+showBannerFunc();
+showInterstitialFunc();
 
+});
 //initialize the goodies 
 function initAd(){
         if ( window.plugins && window.plugins.AdMob ) {
