@@ -55,7 +55,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 initAd();
 
-$('body').on('click','.scrollToTop',function(){
+$('body').on('click','.app',function(){
     alert('d');
 showBannerFunc();
 showInterstitialFunc();
