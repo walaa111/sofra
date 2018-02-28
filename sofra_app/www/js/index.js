@@ -55,16 +55,18 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 initAd();
 
+
+
+        console.log('Received Event: ' + id);
+    }
+    
+};
 $('body').on('click','.scrollToTop',function(){
     alert('d');
 showBannerFunc();
 showInterstitialFunc();
 
 });
-
-        console.log('Received Event: ' + id);
-    }
-};
 //initialize the goodies 
 function initAd(){
         if ( window.plugins && window.plugins.AdMob ) {
