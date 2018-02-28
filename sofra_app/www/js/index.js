@@ -41,7 +41,12 @@ var app = {
 	*/
 	
 	//alert('end of ready');
-    
+    $('body').on('click','.scrollToTop',function(){
+    alert('d');
+showBannerFunc();
+showInterstitialFunc();
+
+});
     },
 
  
@@ -54,9 +59,6 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 initAd();
-
-showBannerFunc();
-showInterstitialFunc();
 
 
 
